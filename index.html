@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Вебинар 16-17.10 — полный разбор · GetCourse · 17.10</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0d1117;--card:#161b22;--line:#232a33;--fg:#e6edf3;--dim:#7d8590;--grn:#2ea043;--blu:#388bfd;--org:#f0883e;--pur:#a371f7;--red:#f85149}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px 90px}
+header{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:16px 20px 14px;margin-bottom:26px}
+header .in{max-width:1280px;margin:0 auto}
+h1{margin:0;font-size:22px;font-weight:680;letter-spacing:-.3px;line-height:1.25}
+.meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--dim);padding-top:12px;border-top:1px solid var(--line)}
+.meta b{color:var(--fg);font-weight:620}
+.sub{color:var(--dim);font-size:13px;margin-top:8px;line-height:1.5}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.tag{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--dim);background:#11161d}
+.tag.g{border-color:#1f4d2b;color:#7ee2a8}
+.tag.b{border-color:#1d3d63;color:#79c0ff}
+h2{font-size:15px;margin:32px 0 16px;font-weight:620}
+.note{color:var(--dim);font-size:12.5px;margin:0 0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:16px;margin:16px 0}
+.c{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 15px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;min-height:116px}
+.c .v{order:-1;margin:0 0 4px}
+.c .k{margin:0 0 2px}
+.c::after{content:'';position:absolute;inset:0 auto 0 0;width:3px;background:var(--blu)}
+.c.g::after{background:var(--grn)} .c.o::after{background:var(--org)} .c.p::after{background:var(--pur)} .c.r::after{background:var(--red)}
+.c .k{font-size:11.5px;color:var(--dim);text-transform:lowercase;margin-bottom:5px}
+.c .v{font-size:27px;font-weight:660;line-height:1.1;letter-spacing:-.6px}
+.c .u{font-size:12px;color:var(--dim);margin-top:3px}
+.grid{display:grid;grid-template-columns:1fr;gap:32px}
+.grid.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.boxtitle{font-size:13px;font-weight:640;color:#e6edf3;margin:0 2px 16px;display:flex;align-items:center;gap:9px}
+.boxtitle i{width:4px;height:15px;border-radius:2px;background:#388bfd;display:inline-block;flex:0 0 4px}
+.boxtitle.o i{background:#f0883e}
+.boxtitle small{color:var(--dim);font-weight:400;font-size:11.5px}
+@media (max-width:900px){.grid.two{grid-template-columns:1fr}}
+@media(min-width:1040px){.grid.two{grid-template-columns:1fr 1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 16px 18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:550;font-size:11.5px;text-transform:lowercase;position:sticky;top:0;background:var(--card);cursor:pointer;user-select:none;z-index:5}
+th:hover{color:var(--fg)}
+td:last-child{white-space:normal;overflow-wrap:anywhere}
+tr:hover td{background:#11161d}
+.trw{max-height:520px;overflow-y:auto;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);position:relative;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#30363d transparent}
+.tools{display:flex;gap:10px;align-items:center;margin:0 0 16px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tools .lb{font-size:11.5px;color:var(--dim);text-transform:lowercase;letter-spacing:.2px;margin-right:-4px}
+.tools input[type=search]{flex:1 1 200px;min-width:170px;height:38px;background:#0d1117;border:1px solid var(--line);border-radius:9px;color:var(--fg);font-size:13.5px;padding:0 12px;outline:none;font-family:inherit}
+.tools select{height:38px;background:#0d1117;border:1px solid var(--line);border-radius:9px;color:var(--fg);font-size:13.5px;padding:0 32px 0 12px;outline:none;cursor:pointer;font-family:inherit}
+.count{color:var(--dim);font-size:12.5px;margin-left:auto}
+footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:12px}
+footer b{color:var(--fg)}
+.plotly-graph-div{margin:0 auto}
+@media (max-width:640px){header{position:static;padding:24px 16px 0;margin-bottom:24px}h1{font-size:24px}.cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}.c{min-height:104px}.c .v{font-size:28px}}
+</style></head><body>
+<header><div class="in">
+<h1>Вебинар 16-17.10 — полный разбор данных</h1>
+<div class="sub">«Как за 2,5 месяца запустить зарубежный YOUTUBE-канал без лица и выйти на доход от $2500-3000 в месяц»</div>
+<div class="meta"><span>период <b>16-17 октября 2026</b></span><span>сбор данных <b>17 октября, 17:00</b></span><span>регистраций <b>23</b></span><span>чекинов <b>5</b></span><span>визитов <b>186</b></span></div>
+<div class="tags"><span class="tag">графики тяни и жми столбцы</span><span class="tag">в таблице ищи по имени</span></div>
+</div></header>
+<div class="wrap">
+<h2>Главное</h2>
+<p class="note">Ключевые метрики периода 16-17 октября.</p>
+<div class="cards">
+<div class="c p"><div class="k">регистраций (meta)</div><div class="v">23</div></div>
+<div class="c b"><div class="k">чекинов</div><div class="v">5</div></div>
+<div class="c g"><div class="k">эффективность</div><div class="v">8.7%</div><div class="u">2 из 23 менеджеры</div></div>
+<div class="c o"><div class="k">не пришло</div><div class="v">18</div><div class="u">на автовеб</div></div>
+<div class="c g"><div class="k">визиты</div><div class="v">186</div></div>
+<div class="c b"><div class="k">пользователи</div><div class="v">183</div></div>
+<div class="c p"><div class="k">просмотры</div><div class="v">216</div></div>
+<div class="c r"><div class="k">отказы</div><div class="v">31.8%</div></div>
+</div>
+<div class="grid two">
+<div class="box"><div class="boxtitle"><i></i>Визиты по дням<small>16-17 октября</small></div><div id="gVisits" style="height:320px;width:100%"></div></div>
+<div class="box"><div class="boxtitle o"><i></i>Источники трафика<small>куда пришли</small></div><div id="gSources" style="height:320px;width:100%"></div></div>
+</div>
+<h2>Пол и возраст</h2>
+<p class="note">Данные Яндекс Метрики за 16-17 октября.</p>
+<div class="grid two">
+<div class="box"><div class="boxtitle"><i></i>Пол<small>визиты</small></div><div id="gGender" style="height:250px;width:100%"></div></div>
+<div class="box"><div class="boxtitle o"><i></i>Возраст<small>визиты</small></div><div id="gAge" style="height:250px;width:100%"></div></div>
+</div>
+<h2>Гео регистраций</h2>
+<p class="note">Все страны и топ-10 городов регистраций на автовебинар.</p>
+<div class="grid two">
+<div class="box"><div class="boxtitle"><i></i>Все страны<small>визиты</small></div><div id="gCountries" style="height:400px;width:100%"></div></div>
+<div class="box"><div class="boxtitle o"><i></i>Топ-10 городов<small>визиты</small></div><div id="gCities" style="height:400px;width:100%"></div></div>
+</div>
+<h2>Гео чекинов</h2>
+<p class="note">Страны чекинов на автовебинар.</p>
+<div class="box"><div class="boxtitle"><i></i>Гео чекинов<small>страны</small></div><div id="gCheckinGeo" style="height:200px;width:100%"></div></div>
+<h2>Чекины</h2>
+<p class="note">Регистрации vs чекины по дням.</p>
+<div class="box"><div class="boxtitle"><i></i>Регистрации и чекины<small>по дням</small></div><div id="gCheckins" style="height:300px;width:100%"></div></div>
+<h2>12:00 vs 20:00</h2>
+<p class="note">Сравнение регистраций на автовебинар в 12:00 и 20:00 (по составу заказа).</p>
+<div class="cards">
+<div class="c g"><div class="k">12:00</div><div class="v">4</div><div class="u">заказов</div></div>
+<div class="c b"><div class="k">20:00</div><div class="v">10</div><div class="u">заказов</div></div>
+<div class="c p"><div class="k">разница</div><div class="v">+6</div><div class="u">больше в 20:00</div></div>
+</div>
+<div class="box"><div class="boxtitle o"><i></i>Сравнение 12:00 vs 20:00<small>по составу заказа</small></div><div id="g12vs20" style="height:300px;width:100%"></div></div>
+<h2>РК Лауры (Meta Ads)</h2>
+<p class="note">Данные рекламных кампаний за 16-17 октября.</p>
+<div class="cards">
+<div class="c o"><div class="k">потрачено</div><div class="v">$280.1</div></div>
+<div class="c b"><div class="k">клики</div><div class="v">192</div></div>
+<div class="c g"><div class="k">показы</div><div class="v">8844</div></div>
+</div>
+<div class="box"><div class="boxtitle"><i></i>Кампании Лауры<small>16-17 октября</small></div><div id="gMetaAds" style="height:250px;width:100%"></div></div>
+<h2>По каждой регистрации</h2>
+<p class="note">Все регистрации и чекины. Ищи по имени, сортируй по колонкам.</p>
+<div class="tools">
+<span class="lb">поиск</span>
+<input type="search" id="q" placeholder="имя, страна, utm…">
+<span class="lb">фильтр</span>
+<select id="f">
+<option value="all">все</option>
+<option value="meta">только meta</option>
+<option value="sales">sales (менеджеры)</option>
+<option value="bot">bot</option>
+<option value="checkin">чекины</option>
+</select>
+<span class="count" id="cnt"></span>
+</div>
+<div class="trw" id="tbl"></div>
+<footer><b>Вебинар 16-17 октября</b> · обновлено 17.10.2026 17:00 · данные GetCourse + Яндекс Метрика + Meta Ads</footer>
+</div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+const DATA = {"metrika": {"total": {"visits": 186, "users": 183, "pageviews": 216, "bounce": 31.8, "avg_time": 22.5}, "by_day": [{"date": "2026-10-16", "visits": 138, "users": 135}, {"date": "2026-10-17", "visits": 48, "users": 48}], "countries": [{"name": "Ирландия", "visits": 59, "pct": 31.7}, {"name": "Испания", "visits": 32, "pct": 17.2}, {"name": "Германия", "visits": 20, "pct": 10.8}, {"name": "Великобритания", "visits": 18, "pct": 9.7}, {"name": "Италия", "visits": 18, "pct": 9.7}, {"name": "Португалия", "visits": 15, "pct": 8.1}, {"name": "Франция", "visits": 11, "pct": 5.9}, {"name": "Россия", "visits": 5, "pct": 2.7}, {"name": "Нидерланды", "visits": 2, "pct": 1.1}, {"name": "Кипр", "visits": 1, "pct": 0.5}, {"name": "Беларусь", "visits": 1, "pct": 0.5}, {"name": "Новая Зеландия", "visits": 1, "pct": 0.5}, {"name": "США", "visits": 1, "pct": 0.5}, {"name": "Молдова", "visits": 1, "pct": 0.5}, {"name": "Литва", "visits": 1, "pct": 0.5}], "cities": [{"name": "Ireland", "visits": 59, "pct": 31.7}, {"name": "United Kingdom", "visits": 11, "pct": 5.9}, {"name": "Lisbon", "visits": 8, "pct": 4.3}, {"name": "Community of Madrid", "visits": 6, "pct": 3.2}, {"name": "Valencia", "visits": 5, "pct": 2.7}, {"name": "Barcelona", "visits": 3, "pct": 1.6}, {"name": "Free State of Bavaria", "visits": 3, "pct": 1.6}, {"name": "Valencian Community", "visits": 3, "pct": 1.6}, {"name": "Moscow", "visits": 3, "pct": 1.6}, {"name": "Paris", "visits": 3, "pct": 1.6}, {"name": "Florence", "visits": 2, "pct": 1.1}, {"name": "Fürth", "visits": 2, "pct": 1.1}, {"name": "Italy", "visits": 2, "pct": 1.1}, {"name": "The Hague", "visits": 2, "pct": 1.1}, {"name": "Trento", "visits": 2, "pct": 1.1}, {"name": "Turin", "visits": 2, "pct": 1.1}, {"name": "Veneto", "visits": 2, "pct": 1.1}, {"name": "Munich", "visits": 2, "pct": 1.1}, {"name": "Porto", "visits": 2, "pct": 1.1}, {"name": "Madrid", "visits": 2, "pct": 1.1}, {"name": "Alicante", "visits": 1, "pct": 0.5}, {"name": "Cagliari", "visits": 1, "pct": 0.5}, {"name": "Cambridge", "visits": 1, "pct": 0.5}, {"name": "Canary Islands", "visits": 1, "pct": 0.5}, {"name": "Catalonia", "visits": 1, "pct": 0.5}, {"name": "Compiegne", "visits": 1, "pct": 0.5}, {"name": "Conegliano", "visits": 1, "pct": 0.5}, {"name": "Corby", "visits": 1, "pct": 0.5}, {"name": "Dortmund", "visits": 1, "pct": 0.5}, {"name": "Essen", "visits": 1, "pct": 0.5}, {"name": "Freiburg im Breisgau", "visits": 1, "pct": 0.5}, {"name": "Hanau", "visits": 1, "pct": 0.5}, {"name": "Hanover", "visits": 1, "pct": 0.5}, {"name": "Kent County", "visits": 1, "pct": 0.5}, {"name": "Kulmbach", "visits": 1, "pct": 0.5}, {"name": "Lage", "visits": 1, "pct": 0.5}, {"name": "Lecce", "visits": 1, "pct": 0.5}, {"name": "Lille", "visits": 1, "pct": 0.5}, {"name": "Limassol", "visits": 1, "pct": 0.5}, {"name": "London", "visits": 1, "pct": 0.5}, {"name": "Minsk", "visits": 1, "pct": 0.5}, {"name": "Neuss", "visits": 1, "pct": 0.5}, {"name": "New Zealand", "visits": 1, "pct": 0.5}, {"name": "Norwich", "visits": 1, "pct": 0.5}, {"name": "Region of Murcia", "visits": 1, "pct": 0.5}, {"name": "Saint Petersburg", "visits": 1, "pct": 0.5}, {"name": "Santa Cruz de Tenerife", "visits": 1, "pct": 0.5}, {"name": "State of New Jersey", "visits": 1, "pct": 0.5}, {"name": "Strasbourg", "visits": 1, "pct": 0.5}, {"name": "Val-de-Marne", "visits": 1, "pct": 0.5}, {"name": "Vicenza", "visits": 1, "pct": 0.5}, {"name": "Aveiro District", "visits": 1, "pct": 0.5}, {"name": "Blois", "visits": 1, "pct": 0.5}, {"name": "Cambrils", "visits": 1, "pct": 0.5}, {"name": "Cardiff", "visits": 1, "pct": 0.5}, {"name": "Castile-La Mancha", "visits": 1, "pct": 0.5}, {"name": "Dresden", "visits": 1, "pct": 0.5}, {"name": "Galicia", "visits": 1, "pct": 0.5}, {"name": "Hamburg", "visits": 1, "pct": 0.5}, {"name": "Hesse", "visits": 1, "pct": 0.5}, {"name": "Huntingdon", "visits": 1, "pct": 0.5}, {"name": "Lazio", "visits": 1, "pct": 0.5}, {"name": "Lucca", "visits": 1, "pct": 0.5}, {"name": "Matosinhos", "visits": 1, "pct": 0.5}, {"name": "Mijas", "visits": 1, "pct": 0.5}, {"name": "Moers", "visits": 1, "pct": 0.5}, {"name": "Nice", "visits": 1, "pct": 0.5}, {"name": "Novara", "visits": 1, "pct": 0.5}, {"name": "Parma", "visits": 1, "pct": 0.5}, {"name": "Perpignan", "visits": 1, "pct": 0.5}, {"name": "Pineda de Mar", "visits": 1, "pct": 0.5}, {"name": "Podolsk", "visits": 1, "pct": 0.5}, {"name": "Porto District", "visits": 1, "pct": 0.5}, {"name": "Quarteira", "visits": 1, "pct": 0.5}, {"name": "Ronda", "visits": 1, "pct": 0.5}, {"name": "Saint-Germain-en-Laye", "visits": 1, "pct": 0.5}, {"name": "Santa Ponsa", "visits": 1, "pct": 0.5}, {"name": "Setubal District", "visits": 1, "pct": 0.5}, {"name": "Soldanesti", "visits": 1, "pct": 0.5}, {"name": "Tarragona", "visits": 1, "pct": 0.5}, {"name": "Vilnius", "visits": 1, "pct": 0.5}, {"name": "Wegberg", "visits": 1, "pct": 0.5}], "sources": [{"name": "meta", "visits": 171, "pct": 91.9}, {"name": "без метки", "visits": 15, "pct": 8.1}], "gender": [{"name": "female", "visits": 5.0, "users": 5.0}], "age": [{"name": "45", "visits": 2.0, "users": 2.0}, {"name": "55", "visits": 2.0, "users": 2.0}, {"name": "25", "visits": 1.0, "users": 1.0}, {"name": "35", "visits": 1.0, "users": 1.0}]}, "getcourse": {"meta_count": 23, "sales_count": 2, "bot_count": 2, "no_tag_count": 1, "checkins_count": 5, "efficiency": "8.7%", "not_came": 18, "order_12_count": 4, "order_20_count": 10, "order_12_names": ["Fia", "Fia", "Света Г", "Nychyporenko Iryna"], "order_20_names": ["Alina Порада", "Elena Guselnikova", "A", "Elvira", "Julia", "Alina Danuta", "Natalia", "Марина", "Oleh", "Евгений"], "reg_geo": [{"country": "Испания", "count": 9, "pct": 39.1}, {"country": "Франция", "count": 4, "pct": 17.4}, {"country": "Германия", "count": 4, "pct": 17.4}, {"country": "Португалия", "count": 2, "pct": 8.7}, {"country": "Великобритания", "count": 2, "pct": 8.7}, {"country": "США", "count": 1, "pct": 4.3}, {"country": "Италия", "count": 1, "pct": 4.3}], "checkin_geo": [{"country": "Великобритания", "count": 2, "pct": 40.0}, {"country": "Германия", "count": 2, "pct": 40.0}, {"country": "Италия", "count": 1, "pct": 20.0}]}, "meta_ads": {"accounts": [{"name": "Leads YT 15/10 auto EU", "spend": 280.08, "clicks": 192, "impressions": 8844, "cpc": 1.46, "cpm": 31.67, "ctr": 2.17, "link_clicks": 137, "page_engagement": 2541, "leads": 1}], "total_spend": 280.08, "total_clicks": 192, "total_impressions": 8844, "campaign_id": "120248070214550146", "account_id": "2279105132935894"}, "updated_at": "2026-10-17 17:00:00"};
+function createPlot(id, data, layout) {
+  if (typeof Plotly !== 'undefined') {
+    Plotly.newPlot(id, data, layout, {displayModeBar: false});
+  } else {
+    // Fallback: простая таблица
+    const el = document.getElementById(id);
+    if (el && data[0] && data[0].x) {
+      let html = '<table><thead><tr><th>' + (data[0].name || 'Значение') + '</th><th>Количество</th></tr></thead><tbody>';
+      for (let i = 0; i < data[0].x.length; i++) {
+        html += '<tr><td>' + data[0].x[i] + '</td><td>' + data[0].y[i] + '</td></tr>';
+      }
+      html += '</tbody></table>';
+      el.innerHTML = html;
+    }
+  }
+}
+
+
+createPlot('gVisits', [{
+  x: DATA.metrika.by_day.map(d => d.date.slice(5)),
+  y: DATA.metrika.by_day.map(d => d.visits),
+  type: 'bar',
+  marker: {color: '#388bfd'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gSources', [{
+  x: DATA.metrika.sources.map(s => s.name),
+  y: DATA.metrika.sources.map(s => s.visits),
+  type: 'bar',
+  marker: {color: '#f0883e'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 60, l: 40},
+  xaxis: {gridcolor: '#232a33', tickangle: -30},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gGender', [{
+  x: DATA.metrika.gender.map(g => g.name),
+  y: DATA.metrika.gender.map(g => g.visits),
+  type: 'bar',
+  marker: {color: '#a371f7'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gAge', [{
+  x: DATA.metrika.age.map(a => a.name),
+  y: DATA.metrika.age.map(a => a.visits),
+  type: 'bar',
+  marker: {color: '#2ea043'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gCountries', [{
+  x: DATA.metrika.countries.map(c => c.name),
+  y: DATA.metrika.countries.map(c => c.visits),
+  type: 'bar',
+  marker: {color: '#2ea043'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 80, l: 40},
+  xaxis: {gridcolor: '#232a33', tickangle: -45},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+const topCities = DATA.metrika.cities.slice(0, 10);
+createPlot('gCities', [{
+  x: topCities.map(c => c.name),
+  y: topCities.map(c => c.visits),
+  type: 'bar',
+  marker: {color: '#a371f7'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 60, l: 40},
+  xaxis: {gridcolor: '#232a33', tickangle: -30},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gCheckinGeo', [{
+  x: DATA.getcourse.checkin_geo.map(c => c.country),
+  y: DATA.getcourse.checkin_geo.map(c => c.count),
+  type: 'bar',
+  marker: {color: '#f0883e'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gCheckins', [{
+  x: DATA.metrika.by_day.map(d => d.date.slice(5)),
+  y: DATA.metrika.by_day.map(d => d.users),
+  name: 'Пользователи',
+  type: 'bar',
+  marker: {color: '#388bfd'}
+}, {
+  x: DATA.metrika.by_day.map(d => d.date.slice(5)),
+  y: DATA.metrika.by_day.map(d => d.pageviews),
+  name: 'Просмотры',
+  type: 'bar',
+  marker: {color: '#f0883e'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'},
+  barmode: 'group'
+});
+
+
+createPlot('g12vs20', [{
+  x: ['12:00', '20:00'],
+  y: [DATA.getcourse.order_12_count, DATA.getcourse.order_20_count],
+  type: 'bar',
+  marker: {color: ['#2ea043', '#388bfd']}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 30, l: 40},
+  xaxis: {gridcolor: '#232a33'},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+createPlot('gMetaAds', [{
+  x: DATA.meta_ads.accounts.map(a => a.name),
+  y: DATA.meta_ads.accounts.map(a => a.spend),
+  type: 'bar',
+  marker: {color: '#f0883e'}
+}], {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: {color: '#7d8590', size: 11},
+  margin: {t: 10, r: 10, b: 60, l: 40},
+  xaxis: {gridcolor: '#232a33', tickangle: -30},
+  yaxis: {gridcolor: '#232a33'}
+});
+
+
+const clients = [
+  {"name":"Olga","country":"Испания","utm":"meta","type":"рег","date":"40 минут назад"},
+  {"name":"Elena Naumova","country":"Франция","utm":"meta","type":"рег","date":"сегодня 11:20"},
+  {"name":"Maria Bocoum","country":"Испания","utm":"meta","type":"рег","date":"сегодня 11:14"},
+  {"name":"Мар","country":"Испания","utm":"meta","type":"рег","date":"сегодня 09:54"},
+  {"name":"Екатерина Dolgushina","country":"Франция","utm":"meta","type":"рег","date":"сегодня 09:17"},
+  {"name":"Alex","country":"Испания","utm":"meta","type":"рег","date":"сегодня 08:58"},
+  {"name":"Мария","country":"Испания","utm":"meta","type":"рег","date":"сегодня 08:39"},
+  {"name":"Маргарита Pryhoda","country":"Испания","utm":"meta","type":"рег","date":"сегодня 08:23"},
+  {"name":"Irina Nahmany","country":"Испания","utm":"meta","type":"рег","date":"сегодня 01:15"},
+  {"name":"Daria","country":"Испания","utm":"meta","type":"рег","date":"вчера 20:43"},
+  {"name":"Александра","country":"Испания","utm":"meta","type":"рег","date":"вчера 18:39"},
+  {"name":"Viktoriya Каримова","country":"Испания","utm":"meta","type":"рег","date":"вчера 18:39"},
+  {"name":"Natalia Cascaval","country":"Испания","utm":"meta","type":"рег","date":"вчера 18:22"},
+  {"name":"Катя","country":"Испания","utm":"meta","type":"рег","date":"вчера 18:17"},
+  {"name":"Женя David-Boyet","country":"Испания","utm":"meta","type":"рег","date":"вчера 18:14"},
+  {"name":"Alina Порада","country":"Испания","utm":"meta","type":"рег","date":"вчера 15:39"},
+  {"name":"Elena Guselnikova","country":"Франция","utm":"meta","type":"рег","date":"вчера 15:14"},
+  {"name":"A","country":"Испания","utm":"meta","type":"рег","date":"вчера 15:12"},
+  {"name":"Julia","country":"Испания","utm":"meta","type":"рег","date":"вчера 14:49"},
+  {"name":"Света Г","country":"Испания","utm":"meta","type":"рег","date":"вчера 14:08"},
+  {"name":"Alina Danuta","country":"Испания","utm":"meta","type":"рег","date":"вчера 13:38"},
+  {"name":"Natalia","country":"Испания","utm":"meta","type":"рег","date":"вчера 12:20"},
+  {"name":"Nychyporenko Iryna","country":"Испания","utm":"meta","type":"рег","date":"вчера 10:24"},
+  {"name":"Евгений","country":"Великобритания","utm":"sales","type":"чекин","date":"вчера 20:21"},
+  {"name":"Oleh","country":"Германия","utm":"sales","type":"чекин","date":"вчера 19:58"},
+  {"name":"Elvira","country":"Великобритания","utm":"bot","type":"чекин","date":"вчера 20:08"},
+  {"name":"Fia","country":"Германия","utm":"-","type":"чекин","date":"вчера 18:41"},
+  {"name":"Марина","country":"Италия","utm":"bot","type":"чекин","date":"вчера 12:10"}
+];
+
+function renderTable() {
+  const q = document.getElementById('q').value.toLowerCase();
+  const f = document.getElementById('f').value;
+  let rows = clients;
+  if (f === 'meta') rows = rows.filter(r => r.utm === 'meta');
+  else if (f === 'sales') rows = rows.filter(r => r.utm === 'sales');
+  else if (f === 'bot') rows = rows.filter(r => r.utm === 'bot');
+  else if (f === 'checkin') rows = rows.filter(r => r.type === 'чекин');
+  if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q) || r.country.toLowerCase().includes(q) || r.utm.toLowerCase().includes(q));
+  
+  document.getElementById('cnt').textContent = rows.length + ' из ' + clients.length;
+  
+  const html = '<table><thead><tr><th>имя</th><th>страна</th><th>utm</th><th>тип</th><th>время</th></tr></thead><tbody>' +
+    rows.map(r => '<tr><td>' + r.name + '</td><td>' + r.country + '</td><td>' + r.utm + '</td><td>' + r.type + '</td><td>' + r.date + '</td></tr>').join('') +
+    '</tbody></table>';
+  document.getElementById('tbl').innerHTML = html;
+}
+
+document.getElementById('q').addEventListener('input', renderTable);
+document.getElementById('f').addEventListener('change', renderTable);
+renderTable();
+
+</script>
+</body></html>
